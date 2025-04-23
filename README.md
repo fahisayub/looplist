@@ -1,53 +1,16 @@
-# Next.js & HeroUI Template
+# LoopList
+A social streak tracker for micro-habits. Build better habits with visual streaks and community accountability.
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1078053463?h=c01bddc03d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 23/4/2025, 11:53:21 pm"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## About
+LoopList helps you commit to tiny recurring habits, track streaks visually, and share your progress. Create daily, weekly, or custom loops, mark them complete with a single tap, and watch your streak grow. Make your loops public to get motivation from others or keep them private for personal accountability.
 
-## Technologies Used
+## Features
+🔄 Create Loops - Define micro-habits with customizable recurrence patterns
+📊 Track Streaks - Visualize your progress with GitHub-style heatmaps
+🌐 Public Boards - Share your habits and discover what others are building
+👏 Social Engagement - Cheer others on and clone habits that inspire you
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
-
-## How to Use
-
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+## Tech Stack
+Built with Next.js, TypeScript, MongoDB, Mongoose, Hero UI, and Zustand for state management.
