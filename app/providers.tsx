@@ -6,6 +6,9 @@ import * as React from "react";
 import { HeroUIProvider } from "@heroui/system";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { useEffect, useRef } from 'react';
+import { useAuthStore } from '@/store/slices/authSlice';
+import { SessionProvider } from 'next-auth/react';
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -22,10 +25,36 @@ declare module "@react-types/shared" {
 
 export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
+  const { initAuth } = useAuthStore();
+  const authInitialized = useRef(false);
+
+  const defaultThemeProps: ThemeProviderProps = {
+    attribute: "class",
+    defaultTheme: "system",
+    enableSystem: true,
+    disableTransitionOnChange: false,
+    themes: ["light", "dark"],
+    ...themeProps
+  };
+
+  // Initialize auth just once on mount
+  useEffect(() => {
+    if (!authInitialized.current) {
+      console.log('🔐 Initializing authentication state...');
+      authInitialized.current = true;
+
+      initAuth().catch(err => {
+        console.error('❌ Failed to initialize authentication:', err);
+        // Don't set authInitialized back to false - we don't want to retry
+      });
+    }
+  }, [initAuth]);
 
   return (
-    <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
-    </HeroUIProvider>
+    <SessionProvider>
+      <HeroUIProvider navigate={router.push}>
+        <NextThemesProvider {...defaultThemeProps}>{children}</NextThemesProvider>
+      </HeroUIProvider>
+    </SessionProvider>
   );
 }
